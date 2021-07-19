@@ -15,27 +15,27 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"maxGasPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/I/13-GithubWork/Vaults-Protocol/contracts/utils/IGasPrice.sol\":\"IGasPrice\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/I/13-GithubWork/Vaults-Protocol/contracts/utils/IGasPrice.sol\":{\"keccak256\":\"0xb5ca0ab57d2131a3abad561a346bc64cd440ba1062a311a5ca9a2c166d538c45\",\"urls\":[\"bzz-raw://542f42d8b8373bd327683bd133d2644872e329285e590e7983bc6ebb5ea71e39\",\"dweb:/ipfs/QmVGB8S7nJdjcKiYEV2zqcdjvvRpLeYgVTFG5iKihxDBhR\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"maxGasPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/I/13-GithubWork/Plutus-Staking/contracts/utils/IGasPrice.sol\":\"IGasPrice\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/I/13-GithubWork/Plutus-Staking/contracts/utils/IGasPrice.sol\":{\"keccak256\":\"0xb5ca0ab57d2131a3abad561a346bc64cd440ba1062a311a5ca9a2c166d538c45\",\"urls\":[\"bzz-raw://542f42d8b8373bd327683bd133d2644872e329285e590e7983bc6ebb5ea71e39\",\"dweb:/ipfs/QmVGB8S7nJdjcKiYEV2zqcdjvvRpLeYgVTFG5iKihxDBhR\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.6.12;\r\n\r\ninterface IGasPrice {\r\n    function maxGasPrice() external returns (uint);\r\n}",
-  "sourcePath": "I:/13-GithubWork/Vaults-Protocol/contracts/utils/IGasPrice.sol",
+  "sourcePath": "I:\\13-GithubWork\\Plutus-Staking\\contracts\\utils\\IGasPrice.sol",
   "ast": {
-    "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/utils/IGasPrice.sol",
+    "absolutePath": "/I/13-GithubWork/Plutus-Staking/contracts/utils/IGasPrice.sol",
     "exportedSymbols": {
       "IGasPrice": [
-        2737
+        3524
       ]
     },
-    "id": 2738,
+    "id": 3525,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2731,
+        "id": 3518,
         "literals": [
           "solidity",
           "^",
@@ -43,7 +43,7 @@
           ".12"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:16"
+        "src": "0:24:15"
       },
       {
         "abstract": false,
@@ -52,9 +52,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2737,
+        "id": 3524,
         "linearizedBaseContracts": [
-          2737
+          3524
         ],
         "name": "IGasPrice",
         "nodeType": "ContractDefinition",
@@ -63,7 +63,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "3de39c11",
-            "id": 2736,
+            "id": 3523,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -71,24 +71,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 2732,
+              "id": 3519,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "75:2:16"
+              "src": "75:2:15"
             },
             "returnParameters": {
-              "id": 2735,
+              "id": 3522,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2734,
+                  "id": 3521,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 2736,
-                  "src": "96:4:16",
+                  "scope": 3523,
+                  "src": "96:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -96,10 +96,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2733,
+                    "id": 3520,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "96:4:16",
+                    "src": "96:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -109,27 +109,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "95:6:16"
+              "src": "95:6:15"
             },
-            "scope": 2737,
-            "src": "55:47:16",
+            "scope": 3524,
+            "src": "55:47:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2738,
-        "src": "28:77:16"
+        "scope": 3525,
+        "src": "28:77:15"
       }
     ],
-    "src": "0:105:16"
+    "src": "0:105:15"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/utils/IGasPrice.sol",
+      "absolutePath": "/I/13-GithubWork/Plutus-Staking/contracts/utils/IGasPrice.sol",
       "exportedSymbols": {
         "IGasPrice": [
-          2737
+          3524
         ]
       },
       "license": null
@@ -144,9 +144,9 @@
             ".12"
           ]
         },
-        "id": 2731,
+        "id": 3518,
         "name": "PragmaDirective",
-        "src": "0:24:16"
+        "src": "0:24:15"
       },
       {
         "attributes": {
@@ -161,10 +161,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2737
+            3524
           ],
           "name": "IGasPrice",
-          "scope": 2738
+          "scope": 3525
         },
         "children": [
           {
@@ -180,7 +180,7 @@
               ],
               "name": "maxGasPrice",
               "overrides": null,
-              "scope": 2737,
+              "scope": 3524,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -193,9 +193,9 @@
                   ]
                 },
                 "children": [],
-                "id": 2732,
+                "id": 3519,
                 "name": "ParameterList",
-                "src": "75:2:16"
+                "src": "75:2:15"
               },
               {
                 "children": [
@@ -205,7 +205,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 2736,
+                      "scope": 3523,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -218,34 +218,34 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 2733,
+                        "id": 3520,
                         "name": "ElementaryTypeName",
-                        "src": "96:4:16"
+                        "src": "96:4:15"
                       }
                     ],
-                    "id": 2734,
+                    "id": 3521,
                     "name": "VariableDeclaration",
-                    "src": "96:4:16"
+                    "src": "96:4:15"
                   }
                 ],
-                "id": 2735,
+                "id": 3522,
                 "name": "ParameterList",
-                "src": "95:6:16"
+                "src": "95:6:15"
               }
             ],
-            "id": 2736,
+            "id": 3523,
             "name": "FunctionDefinition",
-            "src": "55:47:16"
+            "src": "55:47:15"
           }
         ],
-        "id": 2737,
+        "id": 3524,
         "name": "ContractDefinition",
-        "src": "28:77:16"
+        "src": "28:77:15"
       }
     ],
-    "id": 2738,
+    "id": 3525,
     "name": "SourceUnit",
-    "src": "0:105:16"
+    "src": "0:105:15"
   },
   "compiler": {
     "name": "solc",
@@ -253,7 +253,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-16T14:57:45.326Z",
+  "updatedAt": "2021-07-19T02:08:08.788Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

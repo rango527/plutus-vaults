@@ -5,7 +5,7 @@ import "../../utils/GasThrottler.sol";
 
 contract StrategyCakeChefLP is StrategyCommonChefLP, GasThrottler {
 
-    address constant private chefAddress = address(0x73feaa1eE314F8c655E354234017bE2193C9E24E);
+    address constant private chefAddress = address(0xF7D79ED76954530126e040deC97Bc26BF62Bf3B6); // MasterChef address
 
     constructor(
         address _want,
@@ -14,7 +14,7 @@ contract StrategyCakeChefLP is StrategyCommonChefLP, GasThrottler {
         address _unirouter,
         address _keeper,
         address _strategist,
-        address _beefyFeeRecipient,
+        address _plutusFeeRecipient,
         address[] memory _outputToNativeRoute,
         address[] memory _outputToLp0Route,
         address[] memory _outputToLp1Route
@@ -26,7 +26,7 @@ contract StrategyCakeChefLP is StrategyCommonChefLP, GasThrottler {
         _unirouter,
         _keeper,
         _strategist,
-        _beefyFeeRecipient,
+        _plutusFeeRecipient,
         _outputToNativeRoute,
         _outputToLp0Route,
         _outputToLp1Route

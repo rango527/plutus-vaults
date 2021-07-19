@@ -44,11 +44,11 @@ contract StrategyCommonChefLP is StratManager, FeeManager {
         address _unirouter,
         address _keeper,
         address _strategist,
-        address _beefyFeeRecipient,
+        address _plutusFeeRecipient,
         address[] memory _toNativeRoute,
         address[] memory _toLp0Route,
         address[] memory _toLp1Route
-    ) StratManager(_keeper, _strategist, _unirouter, _vault, _beefyFeeRecipient) public {
+    ) StratManager(_keeper, _strategist, _unirouter, _vault, _plutusFeeRecipient) public {
         want = _want;
         poolId = _poolId;
         chef = _chef;
@@ -150,8 +150,8 @@ contract StrategyCommonChefLP is StratManager, FeeManager {
         uint256 callFeeAmount = amount.mul(callFee).div(MAX_FEE);
         IERC20(native).safeTransfer(msg.sender, callFeeAmount);
 
-        uint256 beefyFeeAmount = amount.mul(beefyFee).div(MAX_FEE);
-        IERC20(native).safeTransfer(beefyFeeRecipient, beefyFeeAmount);
+        uint256 plutusFeeAmount = amount.mul(plutusFee).div(MAX_FEE);
+        IERC20(native).safeTransfer(plutusFeeRecipient, plutusFeeAmount);
 
         uint256 strategistFee = amount.mul(STRATEGIST_FEE).div(MAX_FEE);
         IERC20(native).safeTransfer(strategist, strategistFee);

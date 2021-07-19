@@ -41,27 +41,27 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token0\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token1\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/I/13-GithubWork/Vaults-Protocol/contracts/interfaces/common/IUniswapV2Pair.sol\":\"IUniswapV2Pair\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/I/13-GithubWork/Vaults-Protocol/contracts/interfaces/common/IUniswapV2Pair.sol\":{\"keccak256\":\"0xd0923e2e8b5a7450312b09f06d11b7adef387911c2775338a1f8a98820b73f77\",\"urls\":[\"bzz-raw://51eb9ecc981096939aa846db7ab285d692c2fe569b8e31aad5392cc8c2e00acb\",\"dweb:/ipfs/QmfAWZUG8J8QfJ3Bf8RC4dq2DKNifY3P5h3t7GeUMPG4m8\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token0\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token1\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/I/13-GithubWork/Plutus-Staking/contracts/interfaces/common/IUniswapV2Pair.sol\":\"IUniswapV2Pair\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/I/13-GithubWork/Plutus-Staking/contracts/interfaces/common/IUniswapV2Pair.sol\":{\"keccak256\":\"0xd0923e2e8b5a7450312b09f06d11b7adef387911c2775338a1f8a98820b73f77\",\"urls\":[\"bzz-raw://51eb9ecc981096939aa846db7ab285d692c2fe569b8e31aad5392cc8c2e00acb\",\"dweb:/ipfs/QmfAWZUG8J8QfJ3Bf8RC4dq2DKNifY3P5h3t7GeUMPG4m8\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.6.12;\r\n\r\ninterface IUniswapV2Pair {\r\n    function factory() external view returns (address);\r\n    function token0() external view returns (address);\r\n    function token1() external view returns (address);\r\n}",
-  "sourcePath": "I:/13-GithubWork/Vaults-Protocol/contracts/interfaces/common/IUniswapV2Pair.sol",
+  "sourcePath": "I:\\13-GithubWork\\Plutus-Staking\\contracts\\interfaces\\common\\IUniswapV2Pair.sol",
   "ast": {
-    "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/interfaces/common/IUniswapV2Pair.sol",
+    "absolutePath": "/I/13-GithubWork/Plutus-Staking/contracts/interfaces/common/IUniswapV2Pair.sol",
     "exportedSymbols": {
       "IUniswapV2Pair": [
-        771
+        666
       ]
     },
-    "id": 772,
+    "id": 667,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 755,
+        "id": 650,
         "literals": [
           "solidity",
           "^",
@@ -78,9 +78,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 771,
+        "id": 666,
         "linearizedBaseContracts": [
-          771
+          666
         ],
         "name": "IUniswapV2Pair",
         "nodeType": "ContractDefinition",
@@ -89,7 +89,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "c45a0155",
-            "id": 760,
+            "id": 655,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -97,23 +97,23 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 756,
+              "id": 651,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "76:2:5"
             },
             "returnParameters": {
-              "id": 759,
+              "id": 654,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 758,
+                  "id": 653,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 760,
+                  "scope": 655,
                   "src": "102:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -122,7 +122,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 757,
+                    "id": 652,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "102:7:5",
@@ -138,7 +138,7 @@
               ],
               "src": "101:9:5"
             },
-            "scope": 771,
+            "scope": 666,
             "src": "60:51:5",
             "stateMutability": "view",
             "virtual": false,
@@ -148,7 +148,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "0dfe1681",
-            "id": 765,
+            "id": 660,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -156,23 +156,23 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 761,
+              "id": 656,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "132:2:5"
             },
             "returnParameters": {
-              "id": 764,
+              "id": 659,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 763,
+                  "id": 658,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 765,
+                  "scope": 660,
                   "src": "158:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -181,7 +181,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 762,
+                    "id": 657,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "158:7:5",
@@ -197,7 +197,7 @@
               ],
               "src": "157:9:5"
             },
-            "scope": 771,
+            "scope": 666,
             "src": "117:50:5",
             "stateMutability": "view",
             "virtual": false,
@@ -207,7 +207,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "d21220a7",
-            "id": 770,
+            "id": 665,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -215,23 +215,23 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 766,
+              "id": 661,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "188:2:5"
             },
             "returnParameters": {
-              "id": 769,
+              "id": 664,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 768,
+                  "id": 663,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 770,
+                  "scope": 665,
                   "src": "214:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -240,7 +240,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 767,
+                    "id": 662,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "214:7:5",
@@ -256,14 +256,14 @@
               ],
               "src": "213:9:5"
             },
-            "scope": 771,
+            "scope": 666,
             "src": "173:50:5",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 772,
+        "scope": 667,
         "src": "28:198:5"
       }
     ],
@@ -271,10 +271,10 @@
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/interfaces/common/IUniswapV2Pair.sol",
+      "absolutePath": "/I/13-GithubWork/Plutus-Staking/contracts/interfaces/common/IUniswapV2Pair.sol",
       "exportedSymbols": {
         "IUniswapV2Pair": [
-          771
+          666
         ]
       },
       "license": null
@@ -289,7 +289,7 @@
             ".12"
           ]
         },
-        "id": 755,
+        "id": 650,
         "name": "PragmaDirective",
         "src": "0:24:5"
       },
@@ -306,10 +306,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            771
+            666
           ],
           "name": "IUniswapV2Pair",
-          "scope": 772
+          "scope": 667
         },
         "children": [
           {
@@ -325,7 +325,7 @@
               ],
               "name": "factory",
               "overrides": null,
-              "scope": 771,
+              "scope": 666,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -338,7 +338,7 @@
                   ]
                 },
                 "children": [],
-                "id": 756,
+                "id": 651,
                 "name": "ParameterList",
                 "src": "76:2:5"
               },
@@ -350,7 +350,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 760,
+                      "scope": 655,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -364,22 +364,22 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 757,
+                        "id": 652,
                         "name": "ElementaryTypeName",
                         "src": "102:7:5"
                       }
                     ],
-                    "id": 758,
+                    "id": 653,
                     "name": "VariableDeclaration",
                     "src": "102:7:5"
                   }
                 ],
-                "id": 759,
+                "id": 654,
                 "name": "ParameterList",
                 "src": "101:9:5"
               }
             ],
-            "id": 760,
+            "id": 655,
             "name": "FunctionDefinition",
             "src": "60:51:5"
           },
@@ -396,7 +396,7 @@
               ],
               "name": "token0",
               "overrides": null,
-              "scope": 771,
+              "scope": 666,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -409,7 +409,7 @@
                   ]
                 },
                 "children": [],
-                "id": 761,
+                "id": 656,
                 "name": "ParameterList",
                 "src": "132:2:5"
               },
@@ -421,7 +421,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 765,
+                      "scope": 660,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -435,22 +435,22 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 762,
+                        "id": 657,
                         "name": "ElementaryTypeName",
                         "src": "158:7:5"
                       }
                     ],
-                    "id": 763,
+                    "id": 658,
                     "name": "VariableDeclaration",
                     "src": "158:7:5"
                   }
                 ],
-                "id": 764,
+                "id": 659,
                 "name": "ParameterList",
                 "src": "157:9:5"
               }
             ],
-            "id": 765,
+            "id": 660,
             "name": "FunctionDefinition",
             "src": "117:50:5"
           },
@@ -467,7 +467,7 @@
               ],
               "name": "token1",
               "overrides": null,
-              "scope": 771,
+              "scope": 666,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -480,7 +480,7 @@
                   ]
                 },
                 "children": [],
-                "id": 766,
+                "id": 661,
                 "name": "ParameterList",
                 "src": "188:2:5"
               },
@@ -492,7 +492,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 770,
+                      "scope": 665,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -506,32 +506,32 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 767,
+                        "id": 662,
                         "name": "ElementaryTypeName",
                         "src": "214:7:5"
                       }
                     ],
-                    "id": 768,
+                    "id": 663,
                     "name": "VariableDeclaration",
                     "src": "214:7:5"
                   }
                 ],
-                "id": 769,
+                "id": 664,
                 "name": "ParameterList",
                 "src": "213:9:5"
               }
             ],
-            "id": 770,
+            "id": 665,
             "name": "FunctionDefinition",
             "src": "173:50:5"
           }
         ],
-        "id": 771,
+        "id": 666,
         "name": "ContractDefinition",
         "src": "28:198:5"
       }
     ],
-    "id": 772,
+    "id": 667,
     "name": "SourceUnit",
     "src": "0:226:5"
   },
@@ -541,7 +541,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-16T14:57:45.226Z",
+  "updatedAt": "2021-07-19T02:08:08.702Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
