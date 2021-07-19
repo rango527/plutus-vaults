@@ -1,0 +1,2704 @@
+{
+  "contractName": "FeeManager",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_CALL_FEE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_FEE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "STRATEGIST_FEE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "WITHDRAWAL_FEE_CAP",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "WITHDRAWAL_MAX",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "beefyFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "beefyFeeRecipient",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "beforeDeposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "callFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keeper",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_beefyFeeRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "setBeefyFeeRecipient",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_keeper",
+          "type": "address"
+        }
+      ],
+      "name": "setKeeper",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_strategist",
+          "type": "address"
+        }
+      ],
+      "name": "setStrategist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_unirouter",
+          "type": "address"
+        }
+      ],
+      "name": "setUnirouter",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_vault",
+          "type": "address"
+        }
+      ],
+      "name": "setVault",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "strategist",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unirouter",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "vault",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawalFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCallFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setWithdrawalFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"MAX_CALL_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"STRATEGIST_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"WITHDRAWAL_FEE_CAP\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"WITHDRAWAL_MAX\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"beefyFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"beefyFeeRecipient\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"beforeDeposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"callFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"keeper\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_beefyFeeRecipient\",\"type\":\"address\"}],\"name\":\"setBeefyFeeRecipient\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"name\":\"setCallFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_keeper\",\"type\":\"address\"}],\"name\":\"setKeeper\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_strategist\",\"type\":\"address\"}],\"name\":\"setStrategist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_unirouter\",\"type\":\"address\"}],\"name\":\"setUnirouter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vault\",\"type\":\"address\"}],\"name\":\"setVault\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"name\":\"setWithdrawalFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"strategist\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unirouter\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vault\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawalFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"beforeDeposit()\":{\"details\":\"Function to synchronize balances before new user deposit. Can be overridden in the strategy.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"setBeefyFeeRecipient(address)\":{\"details\":\"Updates beefy fee recipient.\",\"params\":{\"_beefyFeeRecipient\":\"new beefy fee recipient address.\"}},\"setKeeper(address)\":{\"details\":\"Updates address of the strat keeper.\",\"params\":{\"_keeper\":\"new keeper address.\"}},\"setStrategist(address)\":{\"details\":\"Updates address where strategist fee earnings will go.\",\"params\":{\"_strategist\":\"new strategist address.\"}},\"setUnirouter(address)\":{\"details\":\"Updates router that will be used for swaps.\",\"params\":{\"_unirouter\":\"new unirouter address.\"}},\"setVault(address)\":{\"details\":\"Updates parent vault.\",\"params\":{\"_vault\":\"new vault address.\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/FeeManager.sol\":\"FeeManager\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/FeeManager.sol\":{\"keccak256\":\"0x2fdabcb11048b29d9bcd6d314c739372cddb14cfd89839291fb52ce4a83f9c79\",\"urls\":[\"bzz-raw://d9860bf313f40b7e6bdd103f1436a32f8ce954646c1eb762e7c7ffec4b19b79e\",\"dweb:/ipfs/QmTzzBhcUY8HTtXV7MVpsY2niBD8B2DCHT7xEJDyvJhhZZ\"]},\"/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/StratManager.sol\":{\"keccak256\":\"0x9a4f233b3499b808441a8c0c1c2ecfcb93eb77ca1ca2f1a4daf3b4c498901145\",\"urls\":[\"bzz-raw://50acb9497cb35c4424b0bcd52830a6abbfc86e2cc0c89001d2abe8b6a578a71a\",\"dweb:/ipfs/QmeEhYXERfLauLm7z9QY6XFjeKdJCks6GwyCc8uMR4C68Q\"]},\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2\",\"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/utils/Pausable.sol\":{\"keccak256\":\"0x212fb1b1d4beaf74354dad9bc329f44ee3c5375ef1c32acff76b4ecefc10f1d8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d21c68cb321d1c8d0fa39fd9ecb6bbe3b2f26623b0f38af280a010c916c85f23\",\"dweb:/ipfs/Qmf2P51HRC4ekDHLYfbXu5SXR33gXrWtq6oKSmfyWqVRuC\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.12;\r\n\r\nimport \"./StratManager.sol\";\r\n\r\nabstract contract FeeManager is StratManager {\r\n    uint constant public STRATEGIST_FEE = 112;\r\n    uint constant public MAX_FEE = 1000;\r\n    uint constant public MAX_CALL_FEE = 111;\r\n\r\n    uint constant public WITHDRAWAL_FEE_CAP = 50;\r\n    uint constant public WITHDRAWAL_MAX = 10000;\r\n\r\n    uint public withdrawalFee = 10;\r\n\r\n    uint public callFee = 111;\r\n    uint public beefyFee = MAX_FEE - STRATEGIST_FEE - callFee;\r\n\r\n    function setCallFee(uint256 _fee) external onlyManager {\r\n        require(_fee <= MAX_CALL_FEE, \"!cap\");\r\n        \r\n        callFee = _fee;\r\n        beefyFee = MAX_FEE - STRATEGIST_FEE - callFee;\r\n    }\r\n\r\n    function setWithdrawalFee(uint256 _fee) external onlyManager {\r\n        require(_fee <= WITHDRAWAL_FEE_CAP, \"!cap\");\r\n\r\n        withdrawalFee = _fee;\r\n    }\r\n}",
+  "sourcePath": "I:/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/FeeManager.sol",
+  "ast": {
+    "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/FeeManager.sol",
+    "exportedSymbols": {
+      "FeeManager": [
+        2567
+      ]
+    },
+    "id": 2568,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2489,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/StratManager.sol",
+        "file": "./StratManager.sol",
+        "id": 2490,
+        "nodeType": "ImportDirective",
+        "scope": 2568,
+        "sourceUnit": 2730,
+        "src": "28:28:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2491,
+              "name": "StratManager",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2729,
+              "src": "92:12:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StratManager_$2729",
+                "typeString": "contract StratManager"
+              }
+            },
+            "id": 2492,
+            "nodeType": "InheritanceSpecifier",
+            "src": "92:12:14"
+          }
+        ],
+        "contractDependencies": [
+          2729,
+          2847,
+          4388,
+          4480
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 2567,
+        "linearizedBaseContracts": [
+          2567,
+          2729,
+          4480,
+          2847,
+          4388
+        ],
+        "name": "FeeManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "functionSelector": "7d38ca65",
+            "id": 2495,
+            "mutability": "constant",
+            "name": "STRATEGIST_FEE",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "112:41:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2493,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "112:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "313132",
+              "id": 2494,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "150:3:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_112_by_1",
+                "typeString": "int_const 112"
+              },
+              "value": "112"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "bc063e1a",
+            "id": 2498,
+            "mutability": "constant",
+            "name": "MAX_FEE",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "160:35:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2496,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "160:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "31303030",
+              "id": 2497,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "191:4:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1000_by_1",
+                "typeString": "int_const 1000"
+              },
+              "value": "1000"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "2ad5a53f",
+            "id": 2501,
+            "mutability": "constant",
+            "name": "MAX_CALL_FEE",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "202:39:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2499,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "202:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "313131",
+              "id": 2500,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "238:3:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_111_by_1",
+                "typeString": "int_const 111"
+              },
+              "value": "111"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "dfbdc437",
+            "id": 2504,
+            "mutability": "constant",
+            "name": "WITHDRAWAL_FEE_CAP",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "250:44:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2502,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "250:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3530",
+              "id": 2503,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "292:2:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_50_by_1",
+                "typeString": "int_const 50"
+              },
+              "value": "50"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "54518b1a",
+            "id": 2507,
+            "mutability": "constant",
+            "name": "WITHDRAWAL_MAX",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "301:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2505,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "301:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3130303030",
+              "id": 2506,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "339:5:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_10000_by_1",
+                "typeString": "int_const 10000"
+              },
+              "value": "10000"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8bc7e8c4",
+            "id": 2510,
+            "mutability": "mutable",
+            "name": "withdrawalFee",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "353:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2508,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "353:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3130",
+              "id": 2509,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "381:2:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_10_by_1",
+                "typeString": "int_const 10"
+              },
+              "value": "10"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "90321e1a",
+            "id": 2513,
+            "mutability": "mutable",
+            "name": "callFee",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "392:25:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2511,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "392:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "313131",
+              "id": 2512,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "414:3:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_111_by_1",
+                "typeString": "int_const 111"
+              },
+              "value": "111"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "d3102589",
+            "id": 2520,
+            "mutability": "mutable",
+            "name": "beefyFee",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 2567,
+            "src": "424:57:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2514,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "424:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "commonType": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              },
+              "id": 2519,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": false,
+              "lValueRequested": false,
+              "leftExpression": {
+                "argumentTypes": null,
+                "commonType": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "id": 2517,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": true,
+                "lValueRequested": false,
+                "leftExpression": {
+                  "argumentTypes": null,
+                  "id": 2515,
+                  "name": "MAX_FEE",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2498,
+                  "src": "447:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "nodeType": "BinaryOperation",
+                "operator": "-",
+                "rightExpression": {
+                  "argumentTypes": null,
+                  "id": 2516,
+                  "name": "STRATEGIST_FEE",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2495,
+                  "src": "457:14:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "src": "447:24:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "BinaryOperation",
+              "operator": "-",
+              "rightExpression": {
+                "argumentTypes": null,
+                "id": 2518,
+                "name": "callFee",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 2513,
+                "src": "474:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "src": "447:34:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2546,
+              "nodeType": "Block",
+              "src": "545:147:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2530,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 2528,
+                          "name": "_fee",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2522,
+                          "src": "564:4:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 2529,
+                          "name": "MAX_CALL_FEE",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2501,
+                          "src": "572:12:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "564:20:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "21636170",
+                        "id": 2531,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "586:6:14",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_70005974841a4f31061b8e2c503e04d9fe36ea605bb38f1f23e6897e8cc9130f",
+                          "typeString": "literal_string \"!cap\""
+                        },
+                        "value": "!cap"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_70005974841a4f31061b8e2c503e04d9fe36ea605bb38f1f23e6897e8cc9130f",
+                          "typeString": "literal_string \"!cap\""
+                        }
+                      ],
+                      "id": 2527,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "556:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 2532,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "556:37:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2533,
+                  "nodeType": "ExpressionStatement",
+                  "src": "556:37:14"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2536,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 2534,
+                      "name": "callFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2513,
+                      "src": "614:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 2535,
+                      "name": "_fee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2522,
+                      "src": "624:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "614:14:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2537,
+                  "nodeType": "ExpressionStatement",
+                  "src": "614:14:14"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2544,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 2538,
+                      "name": "beefyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2520,
+                      "src": "639:8:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 2543,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2541,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 2539,
+                          "name": "MAX_FEE",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2498,
+                          "src": "650:7:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "-",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 2540,
+                          "name": "STRATEGIST_FEE",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2495,
+                          "src": "660:14:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "650:24:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "-",
+                      "rightExpression": {
+                        "argumentTypes": null,
+                        "id": 2542,
+                        "name": "callFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2513,
+                        "src": "677:7:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "src": "650:34:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "639:45:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2545,
+                  "nodeType": "ExpressionStatement",
+                  "src": "639:45:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "26465826",
+            "id": 2547,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 2525,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 2524,
+                  "name": "onlyManager",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2639,
+                  "src": "533:11:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "533:11:14"
+              }
+            ],
+            "name": "setCallFee",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 2523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2522,
+                  "mutability": "mutable",
+                  "name": "_fee",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2547,
+                  "src": "510:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2521,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "510:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "509:14:14"
+            },
+            "returnParameters": {
+              "id": 2526,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "545:0:14"
+            },
+            "scope": 2567,
+            "src": "490:202:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 2565,
+              "nodeType": "Block",
+              "src": "761:95:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2557,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 2555,
+                          "name": "_fee",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2549,
+                          "src": "780:4:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 2556,
+                          "name": "WITHDRAWAL_FEE_CAP",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2504,
+                          "src": "788:18:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "780:26:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "21636170",
+                        "id": 2558,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "808:6:14",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_70005974841a4f31061b8e2c503e04d9fe36ea605bb38f1f23e6897e8cc9130f",
+                          "typeString": "literal_string \"!cap\""
+                        },
+                        "value": "!cap"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_70005974841a4f31061b8e2c503e04d9fe36ea605bb38f1f23e6897e8cc9130f",
+                          "typeString": "literal_string \"!cap\""
+                        }
+                      ],
+                      "id": 2554,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "772:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 2559,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "772:43:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2560,
+                  "nodeType": "ExpressionStatement",
+                  "src": "772:43:14"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2563,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 2561,
+                      "name": "withdrawalFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2510,
+                      "src": "828:13:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 2562,
+                      "name": "_fee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2549,
+                      "src": "844:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "828:20:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2564,
+                  "nodeType": "ExpressionStatement",
+                  "src": "828:20:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "ac1e5025",
+            "id": 2566,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 2552,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 2551,
+                  "name": "onlyManager",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2639,
+                  "src": "749:11:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "749:11:14"
+              }
+            ],
+            "name": "setWithdrawalFee",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 2550,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2549,
+                  "mutability": "mutable",
+                  "name": "_fee",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2566,
+                  "src": "726:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2548,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "726:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "725:14:14"
+            },
+            "returnParameters": {
+              "id": 2553,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "761:0:14"
+            },
+            "scope": 2567,
+            "src": "700:156:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2568,
+        "src": "60:799:14"
+      }
+    ],
+    "src": "0:859:14"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/FeeManager.sol",
+      "exportedSymbols": {
+        "FeeManager": [
+          2567
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".12"
+          ]
+        },
+        "id": 2489,
+        "name": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2730,
+          "absolutePath": "/I/13-GithubWork/Vaults-Protocol/contracts/pools/MASK-BNB/Common/StratManager.sol",
+          "file": "./StratManager.sol",
+          "scope": 2568,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 2490,
+        "name": "ImportDirective",
+        "src": "28:28:14"
+      },
+      {
+        "attributes": {
+          "abstract": true,
+          "contractDependencies": [
+            2729,
+            2847,
+            4388,
+            4480
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            2567,
+            2729,
+            4480,
+            2847,
+            4388
+          ],
+          "name": "FeeManager",
+          "scope": 2568
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "StratManager",
+                  "referencedDeclaration": 2729,
+                  "type": "contract StratManager"
+                },
+                "id": 2491,
+                "name": "UserDefinedTypeName",
+                "src": "92:12:14"
+              }
+            ],
+            "id": 2492,
+            "name": "InheritanceSpecifier",
+            "src": "92:12:14"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "7d38ca65",
+              "mutability": "constant",
+              "name": "STRATEGIST_FEE",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2493,
+                "name": "ElementaryTypeName",
+                "src": "112:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "313132",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 112",
+                  "value": "112"
+                },
+                "id": 2494,
+                "name": "Literal",
+                "src": "150:3:14"
+              }
+            ],
+            "id": 2495,
+            "name": "VariableDeclaration",
+            "src": "112:41:14"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "bc063e1a",
+              "mutability": "constant",
+              "name": "MAX_FEE",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2496,
+                "name": "ElementaryTypeName",
+                "src": "160:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "31303030",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 1000",
+                  "value": "1000"
+                },
+                "id": 2497,
+                "name": "Literal",
+                "src": "191:4:14"
+              }
+            ],
+            "id": 2498,
+            "name": "VariableDeclaration",
+            "src": "160:35:14"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "2ad5a53f",
+              "mutability": "constant",
+              "name": "MAX_CALL_FEE",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2499,
+                "name": "ElementaryTypeName",
+                "src": "202:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "313131",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 111",
+                  "value": "111"
+                },
+                "id": 2500,
+                "name": "Literal",
+                "src": "238:3:14"
+              }
+            ],
+            "id": 2501,
+            "name": "VariableDeclaration",
+            "src": "202:39:14"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "dfbdc437",
+              "mutability": "constant",
+              "name": "WITHDRAWAL_FEE_CAP",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2502,
+                "name": "ElementaryTypeName",
+                "src": "250:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3530",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 50",
+                  "value": "50"
+                },
+                "id": 2503,
+                "name": "Literal",
+                "src": "292:2:14"
+              }
+            ],
+            "id": 2504,
+            "name": "VariableDeclaration",
+            "src": "250:44:14"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "54518b1a",
+              "mutability": "constant",
+              "name": "WITHDRAWAL_MAX",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2505,
+                "name": "ElementaryTypeName",
+                "src": "301:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3130303030",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 10000",
+                  "value": "10000"
+                },
+                "id": 2506,
+                "name": "Literal",
+                "src": "339:5:14"
+              }
+            ],
+            "id": 2507,
+            "name": "VariableDeclaration",
+            "src": "301:43:14"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "8bc7e8c4",
+              "mutability": "mutable",
+              "name": "withdrawalFee",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2508,
+                "name": "ElementaryTypeName",
+                "src": "353:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3130",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 10",
+                  "value": "10"
+                },
+                "id": 2509,
+                "name": "Literal",
+                "src": "381:2:14"
+              }
+            ],
+            "id": 2510,
+            "name": "VariableDeclaration",
+            "src": "353:30:14"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "90321e1a",
+              "mutability": "mutable",
+              "name": "callFee",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2511,
+                "name": "ElementaryTypeName",
+                "src": "392:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "313131",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 111",
+                  "value": "111"
+                },
+                "id": 2512,
+                "name": "Literal",
+                "src": "414:3:14"
+              }
+            ],
+            "id": 2513,
+            "name": "VariableDeclaration",
+            "src": "392:25:14"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "d3102589",
+              "mutability": "mutable",
+              "name": "beefyFee",
+              "overrides": null,
+              "scope": 2567,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2514,
+                "name": "ElementaryTypeName",
+                "src": "424:4:14"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "operator": "-",
+                  "type": "uint256"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "operator": "-",
+                      "type": "uint256"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2498,
+                          "type": "uint256",
+                          "value": "MAX_FEE"
+                        },
+                        "id": 2515,
+                        "name": "Identifier",
+                        "src": "447:7:14"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2495,
+                          "type": "uint256",
+                          "value": "STRATEGIST_FEE"
+                        },
+                        "id": 2516,
+                        "name": "Identifier",
+                        "src": "457:14:14"
+                      }
+                    ],
+                    "id": 2517,
+                    "name": "BinaryOperation",
+                    "src": "447:24:14"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2513,
+                      "type": "uint256",
+                      "value": "callFee"
+                    },
+                    "id": 2518,
+                    "name": "Identifier",
+                    "src": "474:7:14"
+                  }
+                ],
+                "id": 2519,
+                "name": "BinaryOperation",
+                "src": "447:34:14"
+              }
+            ],
+            "id": 2520,
+            "name": "VariableDeclaration",
+            "src": "424:57:14"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "26465826",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "setCallFee",
+              "overrides": null,
+              "scope": 2567,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_fee",
+                      "overrides": null,
+                      "scope": 2547,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2521,
+                        "name": "ElementaryTypeName",
+                        "src": "510:7:14"
+                      }
+                    ],
+                    "id": 2522,
+                    "name": "VariableDeclaration",
+                    "src": "510:12:14"
+                  }
+                ],
+                "id": 2523,
+                "name": "ParameterList",
+                "src": "509:14:14"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2526,
+                "name": "ParameterList",
+                "src": "545:0:14"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2639,
+                      "type": "modifier ()",
+                      "value": "onlyManager"
+                    },
+                    "id": 2524,
+                    "name": "Identifier",
+                    "src": "533:11:14"
+                  }
+                ],
+                "id": 2525,
+                "name": "ModifierInvocation",
+                "src": "533:11:14"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_70005974841a4f31061b8e2c503e04d9fe36ea605bb38f1f23e6897e8cc9130f",
+                                  "typeString": "literal_string \"!cap\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 2527,
+                            "name": "Identifier",
+                            "src": "556:7:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "<=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2522,
+                                  "type": "uint256",
+                                  "value": "_fee"
+                                },
+                                "id": 2528,
+                                "name": "Identifier",
+                                "src": "564:4:14"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2501,
+                                  "type": "uint256",
+                                  "value": "MAX_CALL_FEE"
+                                },
+                                "id": 2529,
+                                "name": "Identifier",
+                                "src": "572:12:14"
+                              }
+                            ],
+                            "id": 2530,
+                            "name": "BinaryOperation",
+                            "src": "564:20:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "21636170",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"!cap\"",
+                              "value": "!cap"
+                            },
+                            "id": 2531,
+                            "name": "Literal",
+                            "src": "586:6:14"
+                          }
+                        ],
+                        "id": 2532,
+                        "name": "FunctionCall",
+                        "src": "556:37:14"
+                      }
+                    ],
+                    "id": 2533,
+                    "name": "ExpressionStatement",
+                    "src": "556:37:14"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2513,
+                              "type": "uint256",
+                              "value": "callFee"
+                            },
+                            "id": 2534,
+                            "name": "Identifier",
+                            "src": "614:7:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2522,
+                              "type": "uint256",
+                              "value": "_fee"
+                            },
+                            "id": 2535,
+                            "name": "Identifier",
+                            "src": "624:4:14"
+                          }
+                        ],
+                        "id": 2536,
+                        "name": "Assignment",
+                        "src": "614:14:14"
+                      }
+                    ],
+                    "id": 2537,
+                    "name": "ExpressionStatement",
+                    "src": "614:14:14"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2520,
+                              "type": "uint256",
+                              "value": "beefyFee"
+                            },
+                            "id": 2538,
+                            "name": "Identifier",
+                            "src": "639:8:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "-",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "operator": "-",
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2498,
+                                      "type": "uint256",
+                                      "value": "MAX_FEE"
+                                    },
+                                    "id": 2539,
+                                    "name": "Identifier",
+                                    "src": "650:7:14"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2495,
+                                      "type": "uint256",
+                                      "value": "STRATEGIST_FEE"
+                                    },
+                                    "id": 2540,
+                                    "name": "Identifier",
+                                    "src": "660:14:14"
+                                  }
+                                ],
+                                "id": 2541,
+                                "name": "BinaryOperation",
+                                "src": "650:24:14"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2513,
+                                  "type": "uint256",
+                                  "value": "callFee"
+                                },
+                                "id": 2542,
+                                "name": "Identifier",
+                                "src": "677:7:14"
+                              }
+                            ],
+                            "id": 2543,
+                            "name": "BinaryOperation",
+                            "src": "650:34:14"
+                          }
+                        ],
+                        "id": 2544,
+                        "name": "Assignment",
+                        "src": "639:45:14"
+                      }
+                    ],
+                    "id": 2545,
+                    "name": "ExpressionStatement",
+                    "src": "639:45:14"
+                  }
+                ],
+                "id": 2546,
+                "name": "Block",
+                "src": "545:147:14"
+              }
+            ],
+            "id": 2547,
+            "name": "FunctionDefinition",
+            "src": "490:202:14"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "ac1e5025",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "setWithdrawalFee",
+              "overrides": null,
+              "scope": 2567,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_fee",
+                      "overrides": null,
+                      "scope": 2566,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2548,
+                        "name": "ElementaryTypeName",
+                        "src": "726:7:14"
+                      }
+                    ],
+                    "id": 2549,
+                    "name": "VariableDeclaration",
+                    "src": "726:12:14"
+                  }
+                ],
+                "id": 2550,
+                "name": "ParameterList",
+                "src": "725:14:14"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2553,
+                "name": "ParameterList",
+                "src": "761:0:14"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2639,
+                      "type": "modifier ()",
+                      "value": "onlyManager"
+                    },
+                    "id": 2551,
+                    "name": "Identifier",
+                    "src": "749:11:14"
+                  }
+                ],
+                "id": 2552,
+                "name": "ModifierInvocation",
+                "src": "749:11:14"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_70005974841a4f31061b8e2c503e04d9fe36ea605bb38f1f23e6897e8cc9130f",
+                                  "typeString": "literal_string \"!cap\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 2554,
+                            "name": "Identifier",
+                            "src": "772:7:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "<=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2549,
+                                  "type": "uint256",
+                                  "value": "_fee"
+                                },
+                                "id": 2555,
+                                "name": "Identifier",
+                                "src": "780:4:14"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2504,
+                                  "type": "uint256",
+                                  "value": "WITHDRAWAL_FEE_CAP"
+                                },
+                                "id": 2556,
+                                "name": "Identifier",
+                                "src": "788:18:14"
+                              }
+                            ],
+                            "id": 2557,
+                            "name": "BinaryOperation",
+                            "src": "780:26:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "21636170",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"!cap\"",
+                              "value": "!cap"
+                            },
+                            "id": 2558,
+                            "name": "Literal",
+                            "src": "808:6:14"
+                          }
+                        ],
+                        "id": 2559,
+                        "name": "FunctionCall",
+                        "src": "772:43:14"
+                      }
+                    ],
+                    "id": 2560,
+                    "name": "ExpressionStatement",
+                    "src": "772:43:14"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2510,
+                              "type": "uint256",
+                              "value": "withdrawalFee"
+                            },
+                            "id": 2561,
+                            "name": "Identifier",
+                            "src": "828:13:14"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2549,
+                              "type": "uint256",
+                              "value": "_fee"
+                            },
+                            "id": 2562,
+                            "name": "Identifier",
+                            "src": "844:4:14"
+                          }
+                        ],
+                        "id": 2563,
+                        "name": "Assignment",
+                        "src": "828:20:14"
+                      }
+                    ],
+                    "id": 2564,
+                    "name": "ExpressionStatement",
+                    "src": "828:20:14"
+                  }
+                ],
+                "id": 2565,
+                "name": "Block",
+                "src": "761:95:14"
+              }
+            ],
+            "id": 2566,
+            "name": "FunctionDefinition",
+            "src": "700:156:14"
+          }
+        ],
+        "id": 2567,
+        "name": "ContractDefinition",
+        "src": "60:799:14"
+      }
+    ],
+    "id": 2568,
+    "name": "SourceUnit",
+    "src": "0:859:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-16T14:57:45.317Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "beforeDeposit()": {
+        "details": "Function to synchronize balances before new user deposit. Can be overridden in the strategy."
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "paused()": {
+        "details": "Returns true if the contract is paused, and false otherwise."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "setBeefyFeeRecipient(address)": {
+        "details": "Updates beefy fee recipient.",
+        "params": {
+          "_beefyFeeRecipient": "new beefy fee recipient address."
+        }
+      },
+      "setKeeper(address)": {
+        "details": "Updates address of the strat keeper.",
+        "params": {
+          "_keeper": "new keeper address."
+        }
+      },
+      "setStrategist(address)": {
+        "details": "Updates address where strategist fee earnings will go.",
+        "params": {
+          "_strategist": "new strategist address."
+        }
+      },
+      "setUnirouter(address)": {
+        "details": "Updates router that will be used for swaps.",
+        "params": {
+          "_unirouter": "new unirouter address."
+        }
+      },
+      "setVault(address)": {
+        "details": "Updates parent vault.",
+        "params": {
+          "_vault": "new vault address."
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
