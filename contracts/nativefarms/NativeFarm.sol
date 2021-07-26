@@ -66,6 +66,8 @@ contract NativeFarm is Ownable, ReentrancyGuard {
     event SetFeeAddress(address indexed user, address indexed newAddress);
     event NewMemberAdded(address indexed user, bool flag);
     event NewMemberRemoved(address indexed user, bool flag);
+    event UpdateEmissionRate(address indexed user, uint256 nativePerBlock);
+
 
     modifier onlyMember() {
         require(memberInfo[_msgSender()] , "Ownable: caller isn't a member");
@@ -246,5 +248,11 @@ contract NativeFarm is Ownable, ReentrancyGuard {
     function removeMember(address account) public onlyOwner {
         memberInfo[account] = false;
         emit NewMemberRemoved(account, true);
+    }
+
+    function updateEmissionRate(uint256 _nativePerBlock) public onlyOwner {
+        massUpdatePools();
+        nativePerBlock = _nativePerBlock;
+        emit UpdateEmissionRate(msg.sender, _nativePerBlock);
     }
 }
