@@ -5,7 +5,7 @@ import "../../utils/GasThrottler.sol";
 
 contract StrategyCakeChefLP is StrategyCommonChefLP, GasThrottler {
 
-    address constant private chefAddress = address(0xF7D79ED76954530126e040deC97Bc26BF62Bf3B6); // MasterChef address
+    address constant private chefAddress = address(0xba8Ec3cE7dD3D6BC6Fb791d7B10D8012874f0Ac6); // MasterChef address
 
     constructor(
         address _want,
