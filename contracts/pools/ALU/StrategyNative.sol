@@ -19,7 +19,7 @@ contract StrategyNative is StrategyManagerNative, FeeManagerNative {
     address constant public want = address(0x8263CD1601FE73C066bf49cc09841f35348e3be0);
 
     // Third party contracts
-    address constant public masterchef = address(0xba8Ec3cE7dD3D6BC6Fb791d7B10D8012874f0Ac6);
+    address constant public masterchef = address(0x651041EEC7dF7734d048ce89241F2DcbC0d02735);
 
     uint256 immutable public poolId;
 
