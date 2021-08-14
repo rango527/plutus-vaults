@@ -13,25 +13,25 @@ contract StrategyManagerNative is Ownable, Pausable {
     address public keeper;
     address public unirouter;
     address public vault;
-    address public beefyFeeRecipient;
+    address public plutusFeeRecipient;
 
     /**
      * @dev Initializes the base strategy.
      * @param _keeper address to use as alternative owner.
      * @param _unirouter router to use for swaps
      * @param _vault address of parent vault.
-     * @param _beefyFeeRecipient address where to send Beefy's fees.
+     * @param _plutusFeeRecipient address where to send Beefy's fees.
      */
     constructor(
         address _keeper,
         address _unirouter,
         address _vault,
-        address _beefyFeeRecipient
+        address _plutusFeeRecipient
     ) public {
         keeper = _keeper;
         unirouter = _unirouter;
         vault = _vault;
-        beefyFeeRecipient = _beefyFeeRecipient;
+        plutusFeeRecipient = _plutusFeeRecipient;
     }
 
     // checks that caller is either owner or keeper.
@@ -72,10 +72,10 @@ contract StrategyManagerNative is Ownable, Pausable {
 
     /**
      * @dev Updates beefy fee recipient.
-     * @param _beefyFeeRecipient new beefy fee recipient address.
+     * @param _plutusFeeRecipient new beefy fee recipient address.
      */
-    function setBeefyFeeRecipient(address _beefyFeeRecipient) external onlyOwner {
-        beefyFeeRecipient = _beefyFeeRecipient;
+    function setPlutusFeeRecipient(address _plutusFeeRecipient) external onlyOwner {
+        plutusFeeRecipient = _plutusFeeRecipient;
     }
 
     /**

@@ -36,8 +36,8 @@ contract StrategyNative is StrategyManagerNative, FeeManagerNative {
         address _vault,
         address _unirouter,
         address _keeper,
-        address _beefyFeeRecipient
-    ) StrategyManagerNative(_keeper, _unirouter, _vault, _beefyFeeRecipient) public {
+        address _plutusFeeRecipient
+    ) StrategyManagerNative(_keeper, _unirouter, _vault, _plutusFeeRecipient) public {
         poolId = _poolId;
         _giveAllowances();
     }
@@ -100,7 +100,7 @@ contract StrategyNative is StrategyManagerNative, FeeManagerNative {
         IERC20(wrapped).safeTransfer(tx.origin, callFeeAmount);
 
         uint256 beefyFeeAmount = wrappedBal.mul(beefyFee).div(MAX_FEE);
-        IERC20(wrapped).safeTransfer(beefyFeeRecipient, beefyFeeAmount);
+        IERC20(wrapped).safeTransfer(plutusFeeRecipient, beefyFeeAmount);
     }
 
     // calculate the total underlaying 'want' held by the strat.
@@ -115,7 +115,7 @@ contract StrategyNative is StrategyManagerNative, FeeManagerNative {
 
     // it calculates how much 'want' the strategy has working in the farm.
     function balanceOfPool() public view returns (uint256) {
-        (uint256 _amount, ) = IMasterChef(masterchef).userInfo(0, address(this));
+        (uint256 _amount, ) = IMasterChef(masterchef).userInfo(poolId, address(this));
         return _amount;
     }
 
@@ -123,7 +123,7 @@ contract StrategyNative is StrategyManagerNative, FeeManagerNative {
     function retireStrat() external {
         require(msg.sender == vault, "!vault");
 
-        IMasterChef(masterchef).emergencyWithdraw(0);
+        IMasterChef(masterchef).emergencyWithdraw(poolId);
 
         uint256 wantBal = IERC20(want).balanceOf(address(this));
         IERC20(want).transfer(vault, wantBal);
@@ -132,7 +132,7 @@ contract StrategyNative is StrategyManagerNative, FeeManagerNative {
     // pauses deposits and withdraws all funds from third party systems.
     function panic() public onlyManager {
         pause();
-        IMasterChef(masterchef).emergencyWithdraw(0);
+        IMasterChef(masterchef).emergencyWithdraw(poolId);
     }
 
     function pause() public onlyManager {
